@@ -9,7 +9,7 @@ class Review(BaseModel):
     user_id = ""
     text = ""
 
-    def __init__(self, data, **kwargs):
+    def __init__(self, data=None, **kwargs):
         super().__init__(**kwargs)
         if data:
             self.place_id = data.get("place_id", "")
