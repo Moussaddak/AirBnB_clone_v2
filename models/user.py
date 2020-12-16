@@ -10,7 +10,7 @@ class User(BaseModel):
     first_name = ''
     last_name = ''
 
-    def __init__(self, data, **kwargs):
+    def __init__(self, data=None, **kwargs):
         super().__init__(**kwargs)
         if data:
             self.email = data.get("email", "")
