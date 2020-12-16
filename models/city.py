@@ -8,7 +8,8 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-    def __init__(self, data):
-        super().__init__()
-        self.name = data.get("name", "")
-        self.state_id = data.get("state_id", "")
+    def __init__(self, data=None, **kwargs):
+        super().__init__(**kwargs)
+        if data:
+            self.name = data.get("name", "")
+            self.state_id = data.get("state_id", "")

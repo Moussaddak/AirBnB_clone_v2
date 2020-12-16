@@ -6,6 +6,7 @@ from models.base_model import BaseModel
 class Amenity(BaseModel):
     name = ""
 
-    def __init__(self, data):
-        super().__init__()
-        self.name = data.get("name", "")
+    def __init__(self, data=None, **kwargs):
+        super().__init__(**kwargs)
+        if data:
+            self.name = data.get("name", "")

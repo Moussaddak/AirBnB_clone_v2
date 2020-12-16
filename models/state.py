@@ -7,6 +7,7 @@ class State(BaseModel):
     """ State class """
     name = ""
 
-    def __init__(self, data):
-        super().__init__()
-        self.name = data.get("name", "")
+    def __init__(self, data, **kwargs):
+        super().__init__(**kwargs)
+        if data:
+            self.name = data.get("name", "")

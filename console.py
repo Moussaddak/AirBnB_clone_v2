@@ -115,7 +115,14 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, args):
         """ Create an object of any class"""
         list_of_agrs = args.split()
-        class_name = list_of_agrs[0]
+        try:
+            class_name = list_of_agrs[0]
+            if class_name not in HBNBCommand.classes:
+                print("** class doesn't exist **")
+                return
+        except IndexError:
+            print("** class name missing **")
+            return
         dict_data = {}
         for agr in list_of_agrs[1:]:
             key, value = agr.split('=')
@@ -124,12 +131,6 @@ class HBNBCommand(cmd.Cmd):
             if r'_' in value:
                 value = value.replace('_', ' ')
             dict_data[key] = value
-        if not class_name:
-            print("** class name missing **")
-            return
-        elif class_name not in HBNBCommand.classes:
-            print("** class doesn't exist **")
-            return
 
         new_instance = HBNBCommand.classes[class_name](dict_data)
         storage.save()
