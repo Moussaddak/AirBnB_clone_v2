@@ -12,7 +12,7 @@ class FileStorage:
         """Delete obj from __objects class variable"""
         if obj:
             key = obj.to_dict()['__class__'] + '.' + obj.id
-            FileStorage.__objects.pop(key)
+            FileStorage.__objects.pop(key, None)
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
