@@ -6,7 +6,7 @@ mkdir -p /data/web_static/shared/
 mkdir -p /data/web_static/releases/test/
 echo "Nginx Works Fine" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
-chown -R ubuntu:ubuntu /data/
+chown -Rh ubuntu:ubuntu /data/
 printf %s "server {
         listen 80 default_server;
         listen [::]:80 default_server;
