@@ -10,8 +10,6 @@ chown -R ubuntu:ubuntu /data/
 printf %s "server {
         listen 80 default_server;
         listen [::]:80 default_server;
-	
-	server_name www.meddebmoussadak.tech meddebmoussadak.tech
 
 	root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
