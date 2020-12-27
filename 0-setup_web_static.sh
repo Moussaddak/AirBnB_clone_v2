@@ -12,18 +12,18 @@ printf %s "server {
         listen [::]:80 default_server;
 
 	root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-	
-	error_page 404 /404.html;
-        
-	add_header X-Served-By $HOSTNAME always;
-	
-	location /redirect_me {
-                error_page 404 =301 https://www.youtube.com;
-        }
 
 	location /hbnb_static {
                 alias /data/web_static/current/;
+        }
+        index index.html index.htm index.nginx-debian.html;
+
+	error_page 404 /404.html;
+
+	add_header X-Served-By $HOSTNAME always;
+
+	location /redirect_me {
+                error_page 404 =301 https://www.youtube.com;
         }
 }" > /etc/nginx/sites-available/default
 service nginx restart
