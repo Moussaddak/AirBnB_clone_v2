@@ -15,7 +15,7 @@ def do_deploy(archive_path):
                         tmp_path = archive_path.replace("versions", "/tmp")
                         put(archive_path, "/tmp")
                         file_name = search(r"/(\w+).tgz", tmp_path).group(1)
-                        path = "/data/web_static/releases/" + file_name
+                        path = "/data/web_static/releases/" + file_name + '/'
                         run("mkdir -p {}".format(path))
                         run("tar -xzf {} -C {}".format(tmp_path, path))
                         run("rm {}".format(tmp_path))
