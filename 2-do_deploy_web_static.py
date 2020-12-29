@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/python3
 """ Fabric module """
 from fabric.api import env, put, run
 from os.path import exists
