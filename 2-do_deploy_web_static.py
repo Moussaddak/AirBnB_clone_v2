@@ -6,8 +6,8 @@ from re import search
 from datetime import datetime
 import os
 
-
-env.hosts = ['ubuntu@35.237.13.104', 'ubuntu@35.231.190.248']
+env.user = "ubuntu"
+env.hosts = ['35.237.13.104', '35.231.190.248']
 
 
 def do_deploy(archive_path):
