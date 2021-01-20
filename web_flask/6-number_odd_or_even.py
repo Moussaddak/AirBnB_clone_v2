@@ -39,6 +39,7 @@ def only_numbers(n):
 def display_HTML(n):
     return render_template('5-number.html', n=n)
 
+
 @app.route('/number_odd_or_even/<int:n>')
 def odd_or_even(n):
     if n % 2:
