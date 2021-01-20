@@ -39,11 +39,14 @@ def only_numbers(n):
 def display_HTML(n):
     return render_template('5-number.html', n=n)
 
+
 @app.route('/number_odd_or_even/<int:n>')
 def odd_or_even(n):
     if n % 2:
-        return render_template('6-number_odd_or_even.html', n=n, even_odd='odd')
-    return render_template('6-number_odd_or_even.html', n=n, even_odd='even')
+        return render_template('6-number_odd_or_even.html',
+                               n=n, even_odd='odd')
+    return render_template('6-number_odd_or_even.html', n=n,
+                           even_odd='even')
 
 
 if __name__ == '__main__':

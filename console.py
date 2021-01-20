@@ -3,7 +3,7 @@
 import cmd
 import sys
 from models.base_model import BaseModel
-from models.__init__ import storage
+from models.__init__ import storage, HBNB_TYPE_STORAGE
 from models.user import User
 from models.place import Place
 from models.state import State
@@ -93,6 +93,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, command):
         """ Method to exit the HBNB console"""
+        if HBNB_TYPE_STORAGE == 'db':
+            storage.close()
         exit()
 
     def help_quit(self):
@@ -101,6 +103,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """ Handles EOF to exit program """
+        if HBNB_TYPE_STORAGE == 'db':
+            storage.close()
         print()
         exit()
 
@@ -131,11 +135,10 @@ class HBNBCommand(cmd.Cmd):
             if r'_' in value:
                 value = value.replace('_', ' ')
             dict_data[key] = value
-
+        print(dict_data)
         new_instance = HBNBCommand.classes[class_name](dict_data)
-        storage.save()
+        new_instance.save()
         print(new_instance.id)
-        storage.save()
 
     def help_create(self):
         """ Help information for the create method """
